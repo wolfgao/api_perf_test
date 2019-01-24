@@ -4,7 +4,7 @@ import os,sys
 from time import sleep
 import unittest
 import subprocess
-import utils
+from lib import utils
 
 '''
 ab命令格式如下： 

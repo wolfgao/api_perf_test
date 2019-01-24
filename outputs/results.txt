@@ -10,37 +10,37 @@ Server Hostname:        www.baidu.com
 Server Port:            80
 
 Document Path:          /
-Document Length:        152775 bytes
+Document Length:        153077 bytes
 
 Concurrency Level:      10
-Time taken for tests:   2.532 seconds
+Time taken for tests:   2.261 seconds
 Complete requests:      100
-Failed requests:        99
-   (Connect: 0, Receive: 0, Length: 99, Exceptions: 0)
-Total transferred:      15398755 bytes
-HTML transferred:       15304740 bytes
-Requests per second:    39.50 [#/sec] (mean)
-Time per request:       253.177 [ms] (mean)
-Time per request:       25.318 [ms] (mean, across all concurrent requests)
-Transfer rate:          5939.67 [Kbytes/sec] received
+Failed requests:        98
+   (Connect: 0, Receive: 0, Length: 98, Exceptions: 0)
+Total transferred:      15401885 bytes
+HTML transferred:       15306187 bytes
+Requests per second:    44.23 [#/sec] (mean)
+Time per request:       226.087 [ms] (mean)
+Time per request:       22.609 [ms] (mean, across all concurrent requests)
+Transfer rate:          6652.69 [Kbytes/sec] received
 
 Connection Times (ms)
               min  mean[+/-sd] median   max
-Connect:        8   42  18.9     42      85
-Processing:    72  202  49.9    197     331
-Waiting:       17   52  21.6     49     178
-Total:         80  244  49.9    242     386
+Connect:       36   47   9.2     44      73
+Processing:   120  161  37.4    153     453
+Waiting:       39   52  10.7     50      85
+Total:        159  208  39.5    200     498
 
 Percentage of the requests served within a certain time (ms)
-  50%    242
-  66%    262
-  75%    280
-  80%    289
-  90%    307
-  95%    330
-  98%    350
-  99%    386
- 100%    386 (longest request)
+  50%    200
+  66%    215
+  75%    225
+  80%    228
+  90%    238
+  95%    260
+  98%    299
+  99%    498
+ 100%    498 (longest request)
 
 --------------------------------- end of the case ------------------------------- 
 
@@ -65,34 +65,34 @@ Document Path:          /
 Document Length:        182 bytes
 
 Concurrency Level:      10
-Time taken for tests:   1.041 seconds
+Time taken for tests:   1.363 seconds
 Complete requests:      500
 Failed requests:        0
 Non-2xx responses:      500
 Total transferred:      185000 bytes
 HTML transferred:       91000 bytes
-Requests per second:    480.42 [#/sec] (mean)
-Time per request:       20.815 [ms] (mean)
-Time per request:       2.082 [ms] (mean, across all concurrent requests)
-Transfer rate:          173.59 [Kbytes/sec] received
+Requests per second:    366.82 [#/sec] (mean)
+Time per request:       27.261 [ms] (mean)
+Time per request:       2.726 [ms] (mean, across all concurrent requests)
+Transfer rate:          132.54 [Kbytes/sec] received
 
 Connection Times (ms)
               min  mean[+/-sd] median   max
-Connect:        5   10   6.8      9      67
-Processing:     5   10   6.8      9      67
-Waiting:        4   10   6.8      9      67
-Total:         11   20  10.9     18      90
+Connect:        5   13   9.7      9      57
+Processing:     4   14  13.0      9      80
+Waiting:        4   13  12.9      9      79
+Total:         10   27  19.6     20     110
 
 Percentage of the requests served within a certain time (ms)
-  50%     18
-  66%     20
-  75%     21
-  80%     22
-  90%     27
-  95%     32
-  98%     72
-  99%     88
- 100%     90 (longest request)
+  50%     20
+  66%     25
+  75%     30
+  80%     34
+  90%     53
+  95%     66
+  98%    102
+  99%    109
+ 100%    110 (longest request)
 
 --------------------------------- end of the case ------------------------------- 
 
