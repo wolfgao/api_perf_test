@@ -1,0 +1,98 @@
+This is ApacheBench, Version 2.3 <$Revision: 1826891 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking www.baidu.com (be patient).....done
+
+
+Server Software:        BWS/1.1
+Server Hostname:        www.baidu.com
+Server Port:            80
+
+Document Path:          /
+Document Length:        152775 bytes
+
+Concurrency Level:      10
+Time taken for tests:   2.532 seconds
+Complete requests:      100
+Failed requests:        99
+   (Connect: 0, Receive: 0, Length: 99, Exceptions: 0)
+Total transferred:      15398755 bytes
+HTML transferred:       15304740 bytes
+Requests per second:    39.50 [#/sec] (mean)
+Time per request:       253.177 [ms] (mean)
+Time per request:       25.318 [ms] (mean, across all concurrent requests)
+Transfer rate:          5939.67 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        8   42  18.9     42      85
+Processing:    72  202  49.9    197     331
+Waiting:       17   52  21.6     49     178
+Total:         80  244  49.9    242     386
+
+Percentage of the requests served within a certain time (ms)
+  50%    242
+  66%    262
+  75%    280
+  80%    289
+  90%    307
+  95%    330
+  98%    350
+  99%    386
+ 100%    386 (longest request)
+
+--------------------------------- end of the case ------------------------------- 
+
+This is ApacheBench, Version 2.3 <$Revision: 1826891 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking www.csdn.net (be patient)
+Completed 100 requests
+Completed 200 requests
+Completed 300 requests
+Completed 400 requests
+Completed 500 requests
+Finished 500 requests
+
+
+Server Software:        openresty
+Server Hostname:        www.csdn.net
+Server Port:            80
+
+Document Path:          /
+Document Length:        182 bytes
+
+Concurrency Level:      10
+Time taken for tests:   1.041 seconds
+Complete requests:      500
+Failed requests:        0
+Non-2xx responses:      500
+Total transferred:      185000 bytes
+HTML transferred:       91000 bytes
+Requests per second:    480.42 [#/sec] (mean)
+Time per request:       20.815 [ms] (mean)
+Time per request:       2.082 [ms] (mean, across all concurrent requests)
+Transfer rate:          173.59 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        5   10   6.8      9      67
+Processing:     5   10   6.8      9      67
+Waiting:        4   10   6.8      9      67
+Total:         11   20  10.9     18      90
+
+Percentage of the requests served within a certain time (ms)
+  50%     18
+  66%     20
+  75%     21
+  80%     22
+  90%     27
+  95%     32
+  98%     72
+  99%     88
+ 100%     90 (longest request)
+
+--------------------------------- end of the case ------------------------------- 
+

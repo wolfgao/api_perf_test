@@ -1,0 +1,14 @@
+#api_server 压力测试脚本配置
+
+ab_path: /usr/sbin/ab
+perform_num:
+  - case: 1
+    current_num: 10 #并发请求数
+    request_max: 100 #请求数
+    url: http://www.baidu.com/
+  - case: 2
+    current_num: 10
+    request_max: 500
+    url: http://www.csdn.net/
+#time: 测执行时间(s)
+time_execute: 100
