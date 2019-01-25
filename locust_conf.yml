@@ -1,0 +1,21 @@
+#locust test config file
+#if running commandy way, no web interface, you have to define -c and -r
+
+# define -c: NUM_CLIENTS, --clients=NUM_CLIENTS, Number of concurrent clients. Only used together with --no-web
+current_num: 100
+
+#define -r: HATCH_RATE, --hatch-rate=HATCH_RATE, 
+#The rate per second in which clients are spawned. Only used together with --no-web
+
+hatch-rate: 10
+
+servers:
+  - server1: baidu
+    host: http://www.baidu.com
+    port: 80
+  - server2: csdn
+    host: http://www.csdn.net
+    port: 80
+  - server3: appium
+    host: http://127.0.0.1
+    port: 4723

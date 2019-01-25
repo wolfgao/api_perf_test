@@ -4,7 +4,7 @@ import os,sys
 from time import sleep
 import yaml
 import unittest
-import subprocess
+import json
 
 from locust import Locust, TaskSet, task
 from locust import HttpLocust
@@ -43,61 +43,48 @@ from locust import HttpLocust
   	--only-summary        Only print the summary stats
   	...
   '''
-# Returns abs path relative to this file and not cwd
-PATH = os.path.abspath(os.path.join(os.path.dirname(__file__)))
-RESULTS_PATH = os.path.join(PATH + "/outputs/")
-REPORTS_PATH = os.path.join(PATH + "/reports/")
-
-print("The current path is %s" %PATH)
-print("The result path is %s" %RESULTS_PATH)
-print("The report path is %s" %REPORTS_PATH)
-
 class UserBehavior(TaskSet):
-    #下面应该是压测时候的比重
-    tasks = {index: 2, profile: 1}
-
-    @task
+	
+    @task(1)
     def login(self):
-		'''
-			Post example
-		'''
+		#Post example
 		#根据你网站的实际情况填写
-	    self.head = {'Content-Type': 'application/json; charset=utf-8',
-	    				'token': 'xxxx',
-	    				'User-Agent': 'xxx',
-	    				'userId': 'xxxx'
-	    			}
-	   	self.form_data = {'account': 'admin',
-	   						'password': 'adminxxx'}
-	   	r = self.client.post('/path/login', headers=self.head, data = json.dumps(self.form_data)) 
-	    result = r.json()
+		
+	    self.head = {'Content-Type':'application/json; charset=utf-8',
+	    				'token':'xxxx',
+	    				'User-Agent':'xxx',
+	    				'userId':'xxxx'}
+	    self.form_data = {'account':'admin','password':'adminxxx'}
+	   	
+	   	r = self.client.post('/yourpathto/login', headers=json.dumps(self.head), data=json.dumps(self.form_data))
+	   	
+	   	result = r.json()
 	    assert r.json['code'] == 200
 	    print(result)
+    
+    @task(1)
+    def logout(self):
+		#同上,一样处理
+        self.client.post("/logout", {"account":"admin", "password":"xxx"})
+        result = r.json()
+        assert r.json['code'] == 200
 
-	@task
-	def logout(self):
-		'''
-			同上,一样处理
-		'''
-	    self.client.post("/logout", {"account":"admin", "password":"xxx"})
-	    result = r.json()
-	    assert r.json['code'] == 200
-
-	@task
+	#@task takes an optional weight argument that can be used to specify the task’s execution ratio. 
+	#In the following example task2 will be executed twice as much as task1:
+    @task(2)
 	def index(self):
 		'''
 			get example
 		'''
-	    self.client.get("/")
-	    result = r.json()
-	    assert r.json['code'] == 200
+        self.client.get("/")
+        result = r.json()
+        assert r.json['code'] == 200
 
-	@task
-	def profile(self):	
-	    self.client.get("/profile")
-	    result = r.json()
-	    assert r.json['code'] == 200
-    
+    @task(1)
+    def profile(self):	
+        self.client.get("/profile")
+        result = r.json()
+        assert r.json['code'] == 200
    
 class WebsiteUser(HttpLocust):
 	'''
@@ -110,7 +97,3 @@ class WebsiteUser(HttpLocust):
     min_wait = 5000
     max_wait = 9000
 
-if __name__ == '__main__':
-	#print(d['perform_num'])
-
-	(status, result) = subprocess.getstatusoutput(ab_command)
