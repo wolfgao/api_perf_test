@@ -1,14 +1,18 @@
 # -*- coding: utf-8 -*-
 
-'''
-	This file is tring to run locust without web interface, please refer to 
-	https://docs.locust.io/en/stable/running-locust-without-web-ui.html
-	Why do we need to do that? Generally because we have to integrate this job to our CI, when the build is out,
-	CI will trigger that to perform the tests automatically.
-'''
-import os
-import subprocess
+import os,sys,subprocess
+from time import sleep
+import yaml
+import unittest
+import json
+
+from locust import Locust, TaskSet, task
+from locust import HttpLocust
 from lib import utils
+'''
+此文件主要是为了配合CI，通过no-web的方式来执行，当然这里面需要一个终止信号。
+我们可以通过它判断Totol等于某个数来完成。
+'''
 
 PATH = os.path.abspath(os.path.join(os.path.dirname(__file__)))
 RESULTS_PATH = os.path.join(PATH + "/outputs/")
@@ -23,14 +27,17 @@ d = utils.get_values_from_yaml(PATH+'/locust_conf.yml')
 
 if __name__ == '__main__':
 
-	current_num = d['current_num']	
-	hatch_rate = d['hatch-rate']
-	url = d['servers'][0]['host']
-
-	# $ locust -f locust_files/my_locust_file.py --no-web -c 1000 -r 100
-	#If you want to specify the run time for a test, you can do that with --run-time or -t:
-	locust_command = "locust -f locust_test.py --host=%s --no-web -c %d -r %d" %(url, current_num, hatch_rate)
-	print(locust_command)
-	(status, result) = subprocess.getstatusoutput(locust_command)
-	print(status)
-	print(result)
+  #获得运行参数
+  current_num = d['current_num']  
+  hatch_rate = d['hatch-rate']
+  host = d['host']
+  port = int(d['port'])
+  
+  # $ locust -f locust_files/my_locust_file.py --no-web -c 1000 -r 100
+  #If you want to specify the run time for a test, you can do that with --run-time or -t:
+  locust_command = "locust -f locust_login_demo.py --host=%s -P %d --no-web -c %d -r %d" %(host, port, current_num, hatch_rate)
+  print(locust_command)
+  #(status, result) = subprocess.getstatusoutput(locust_command)
+  os.system(locust_command)
+  print(status)
+  print(result)
