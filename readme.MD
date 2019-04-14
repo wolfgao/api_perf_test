@@ -7,20 +7,20 @@ loadrunner是重量级别（软件时代的经典，需要付费，主要是wind
 
 ## 项目框架
 
-api_perf_test
-   │ ab_conf.yml             #ab压测case配置文件，例如ab文件路径，压测case压测参数等
-   │ api_conf.yml            # 本项目略，可以具体的项目来具体配置待测api 请求参数设置，例如，headers，body，params，cookie等
-   │ ab_test.py              #ab压测启动脚本，python3 ab_test.py
-   │
-   ├─data                     #api参数，post数据存放路径
-   ├─lib                      #压测框架lib库,比如处理测试数据的，形成测试报告的一些工具类
-       │ utils.py
-       │ parser.py
-       │ statis.py
-       │ __init__.py
-       │
-   ├─outputs                  #压测详细结果输出路径
-   └─results                  #压测结果建议报表输出路径
+api_perf_test  
+&ensp;&ensp;│ ab_conf.yml             #ab压测case配置文件，例如ab文件路径，压测case压测参数等  
+&ensp;&ensp;│ api_conf.yml            # 本项目略，可以具体的项目来具体配置待测api 请求参数设置，例如，headers，body，params，cookie等  
+&ensp;&ensp;│ ab_test.py              #ab压测启动脚本，python3 ab_test.py  
+&ensp;&ensp;│  
+&ensp;&ensp;├─data                     #api参数，post数据存放路径  
+&ensp;&ensp;├─lib                      #压测框架lib库,比如处理测试数据的，形成测试报告的一些工具类  
+&ensp;&ensp;&ensp;&ensp;│ utils.py  
+&ensp;&ensp;&ensp;&ensp;│ parser.py  
+&ensp;&ensp;&ensp;&ensp;│ statis.py  
+&ensp;&ensp;&ensp;&ensp;│ __init__.py  
+&ensp;&ensp;&ensp;&ensp;│  
+&ensp;&ensp;├─outputs                  #压测详细结果输出路径  
+&ensp;&ensp;└─results                  #压测结果建议报表输出路径
 
 ## 配置文件说明
 配置文件主要是对ab 或者locust命令的参数进行配置，比如对ab来说有最大请求数，和当前并发数，还有url等
