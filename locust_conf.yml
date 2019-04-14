@@ -14,5 +14,6 @@ host: https://www.baidu.com
 login_url: /v2/?login
 port: 80
 
-account: 13910116476
-password: ioReid@0406
+# please change your test account and password
+account: xxx
+password: xxx
