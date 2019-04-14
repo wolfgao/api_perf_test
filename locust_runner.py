@@ -37,7 +37,17 @@ if __name__ == '__main__':
   #If you want to specify the run time for a test, you can do that with --run-time or -t:
   locust_command = "locust -f locust_login_demo.py --host=%s -P %d --no-web -c %d -r %d" %(host, port, current_num, hatch_rate)
   print(locust_command)
-  #(status, result) = subprocess.getstatusoutput(locust_command)
-  os.system(locust_command)
-  print(status)
-  print(result)
+  stdoutput=None
+  erroutput=None
+  timeout=20
+  p = subprocess.Popen(locust_command, stdin=subprocess.PIPE, stdout=subprocess.PIPE, shell=True)
+  try:
+    (stdoutput, erroutput) = p.communicate(timeout=timeout)
+  except Exception as err:
+    print('except:')
+    print(err)
+  finally:
+    p.kill()
+  print(stdoutput)
+  #os.system(locust_command)
+
